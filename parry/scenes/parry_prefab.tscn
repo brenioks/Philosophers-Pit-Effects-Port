@@ -1,7 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://o12cn7xci7q1"]
+[gd_scene load_steps=14 format=3 uid="uid://o12cn7xci7q1"]
 
 [ext_resource type="Script" uid="uid://cvm6q0sey07ct" path="res://parry/parry_particle.gd" id="1_cd4hu"]
 [ext_resource type="Script" uid="uid://bgq02jc0yinag" path="res://parry/scripts/viewport_center_node2d.gd" id="1_lqiek"]
+[ext_resource type="Texture2D" uid="uid://c6f67da5r7gn5" path="res://assets/parried/parried1.png" id="3_wpshi"]
+[ext_resource type="Texture2D" uid="uid://c15267qqtw7iv" path="res://assets/parried/parried2.png" id="4_s3jby"]
+[ext_resource type="Texture2D" uid="uid://4ndhbpdg11k0" path="res://assets/parried/parried3.png" id="5_8q7xe"]
+[ext_resource type="Texture2D" uid="uid://cvlcbu5s23g2p" path="res://assets/parried/parried4.png" id="6_tpgkh"]
+[ext_resource type="Texture2D" uid="uid://qibseovayjah" path="res://assets/parried/parried5.png" id="7_eqtdl"]
+[ext_resource type="Texture2D" uid="uid://b0h0xehibcqw" path="res://assets/transp_pixel.png" id="8_s3jby"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cd4hu"]
 viewport_path = NodePath("CPUParticles2D/SubViewport")
@@ -19,6 +25,32 @@ point_count = 3
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.5)
 colors = PackedColorArray(0.7294118, 0.3137255, 0.26666668, 1, 0.9372549, 0.9764706, 0.8392157, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ifc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wpshi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s3jby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8q7xe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tpgkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eqtdl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s3jby")
+}],
+"loop": false,
+"name": &"parried",
+"speed": 20.0
+}]
 
 [node name="Parry" type="Node2D"]
 script = ExtResource("1_cd4hu")
@@ -57,7 +89,15 @@ scale = Vector2(2, 0.69)
 polygon = PackedVector2Array(0, 0, 128, -40, 124, 40)
 uv = PackedVector2Array(0, 0, 120, 40, 120, -48)
 
+[node name="ParriedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_4ifc8")
+animation = &"parried"
+frame = 5
+frame_progress = 1.0
+
 [node name="UnfreezeTimer" type="Timer" parent="."]
+process_mode = 3
 wait_time = 0.25
 one_shot = true
 

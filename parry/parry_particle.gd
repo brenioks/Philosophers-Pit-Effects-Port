@@ -3,6 +3,7 @@ extends Node2D
 
 @export_tool_button("Do the parry") var start_parry_action = start_parry
 
+@onready var parried_sprite: AnimatedSprite2D = $ParriedSprite
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var unfreeze_timer: Timer = $UnfreezeTimer
 @onready var flashbang: CanvasLayer = $Flashbang
@@ -23,7 +24,8 @@ func _input(event: InputEvent) -> void:
 
 func start_parry():
 	particles.restart()
-	particles.speed_scale = 0
+	parried_sprite.play("parried")
+	get_tree().paused = true
 	flashbang.visible = true
 	if Engine.is_editor_hint():
 		var rect: ColorRect = flashbang.get_node("ColorRect")
@@ -32,5 +34,5 @@ func start_parry():
 	unfreeze_timer.start()
 
 func unfreeze():
-	particles.speed_scale = 1
+	get_tree().paused = false
 	flashbang.visible = false
