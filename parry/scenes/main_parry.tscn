@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://grgtqgbmv4wr"]
+[gd_scene load_steps=7 format=3 uid="uid://grgtqgbmv4wr"]
 
 [ext_resource type="Script" uid="uid://bgq02jc0yinag" path="res://parry/scripts/viewport_center_node2d.gd" id="1_0euqt"]
+[ext_resource type="Script" uid="uid://cvm6q0sey07ct" path="res://parry/parry_particle.gd" id="1_01ppk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sgp6g"]
 viewport_path = NodePath("SubViewport")
@@ -19,6 +20,7 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.5)
 
 [node name="Parry" type="Node2D"]
+script = ExtResource("1_01ppk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -36,10 +38,11 @@ grow_vertical = 2
 color = Color(0.16924527, 0.1692453, 0.16924527, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 16
 texture = SubResource("ViewportTexture_sgp6g")
 lifetime = 0.5
-preprocess = 0.01
+one_shot = true
 explosiveness = 1.0
 draw_order = 1
 particle_flag_align_y = true
