@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://grgtqgbmv4wr"]
+[gd_scene load_steps=6 format=3 uid="uid://grgtqgbmv4wr"]
 
 [ext_resource type="Script" uid="uid://bgq02jc0yinag" path="res://parry/scripts/viewport_center_node2d.gd" id="1_o5qli"]
 
@@ -13,6 +13,10 @@ point_count = 2
 _limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0.6516855), 0.0, 16.694584, 0, 0, Vector2(0.25550663, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), -8.926981, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_o5qli"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
 
 [node name="Main" type="Node2D"]
 
@@ -32,11 +36,9 @@ grow_vertical = 2
 color = Color(0.16924527, 0.1692453, 0.16924527, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-emitting = false
 amount = 16
 texture = SubResource("ViewportTexture_sgp6g")
 lifetime = 0.5
-one_shot = true
 preprocess = 0.01
 explosiveness = 1.0
 draw_order = 1
@@ -53,6 +55,7 @@ scale_amount_max = 1.6
 split_scale = true
 scale_curve_x = SubResource("Curve_0wfyh")
 scale_curve_y = SubResource("Curve_o5qli")
+color_initial_ramp = SubResource("Gradient_o5qli")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
