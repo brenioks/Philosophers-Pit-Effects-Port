@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://grgtqgbmv4wr"]
 
-[ext_resource type="Script" uid="uid://bgq02jc0yinag" path="res://parry/scripts/viewport_center_node2d.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bgq02jc0yinag" path="res://parry/scripts/viewport_center_node2d.gd" id="1_0euqt"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sgp6g"]
 viewport_path = NodePath("SubViewport")
@@ -18,7 +18,7 @@ point_count = 3
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.5)
 
-[node name="Main" type="Node2D"]
+[node name="Parry" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -60,7 +60,7 @@ color_initial_ramp = SubResource("Gradient_o5qli")
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(256, 256)
-script = ExtResource("1_o5qli")
+script = ExtResource("1_0euqt")
 
 [node name="Polygon2D" type="Polygon2D" parent="SubViewport"]
 position = Vector2(128, 128)
