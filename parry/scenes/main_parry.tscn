@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cvm6q0sey07ct" path="res://parry/parry_particle.gd" id="1_01ppk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sgp6g"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("CPUParticles2D/SubViewport")
 
 [sub_resource type="Curve" id="Curve_0wfyh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.6983173, 0.0, 0, 0]
@@ -53,23 +53,22 @@ initial_velocity_max = 1000.0
 linear_accel_min = 2500.0
 linear_accel_max = 5000.0
 damping_max = 100.0
-scale_amount_min = 0.8
-scale_amount_max = 1.6
+scale_amount_min = 0.4
+scale_amount_max = 0.8
 split_scale = true
 scale_curve_x = SubResource("Curve_0wfyh")
 scale_curve_y = SubResource("Curve_o5qli")
 color_initial_ramp = SubResource("Gradient_o5qli")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="CPUParticles2D"]
 transparent_bg = true
-size = Vector2i(256, 256)
 script = ExtResource("1_0euqt")
 
-[node name="Polygon2D" type="Polygon2D" parent="SubViewport"]
-position = Vector2(128, 128)
+[node name="Polygon2D" type="Polygon2D" parent="CPUParticles2D/SubViewport"]
+position = Vector2(256, 256)
 rotation = 1.5707964
-scale = Vector2(1, 0.345)
-polygon = PackedVector2Array(0, 0, 128, -40, 120, 40)
+scale = Vector2(2, 0.69)
+polygon = PackedVector2Array(0, 0, 128, -40, 124, 40)
 uv = PackedVector2Array(0, 0, 120, 40, 120, -48)
 
 [node name="UnfreezeTimer" type="Timer" parent="."]
