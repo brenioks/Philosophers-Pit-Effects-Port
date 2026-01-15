@@ -1,3 +1,67 @@
-[gd_scene format=3 uid="uid://grgtqgbmv4wr"]
+[gd_scene load_steps=5 format=3 uid="uid://grgtqgbmv4wr"]
+
+[ext_resource type="Script" uid="uid://bgq02jc0yinag" path="res://parry/scripts/viewport_center_node2d.gd" id="1_o5qli"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sgp6g"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Curve" id="Curve_0wfyh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.6983173, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_o5qli"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.6516855), 0.0, 16.694584, 0, 0, Vector2(0.25550663, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), -8.926981, 0.0, 0, 0]
+point_count = 3
 
 [node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+texture = SubResource("ViewportTexture_sgp6g")
+lifetime = 0.5
+one_shot = true
+preprocess = 0.01
+explosiveness = 1.0
+draw_order = 1
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 800.0
+initial_velocity_max = 1000.0
+linear_accel_min = 2500.0
+linear_accel_max = 5000.0
+damping_max = 100.0
+scale_amount_min = 0.8
+scale_amount_max = 1.6
+split_scale = true
+scale_curve_x = SubResource("Curve_0wfyh")
+scale_curve_y = SubResource("Curve_o5qli")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(256, 256)
+script = ExtResource("1_o5qli")
+
+[node name="Polygon2D" type="Polygon2D" parent="SubViewport"]
+position = Vector2(128, 128)
+rotation = 1.5707964
+scale = Vector2(1, 0.345)
+polygon = PackedVector2Array(0, 0, 128, -40, 120, 40)
+uv = PackedVector2Array(0, 0, 120, 40, 120, -48)
