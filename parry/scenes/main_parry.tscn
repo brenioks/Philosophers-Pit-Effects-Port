@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://o12cn7xci7q1" path="res://parry/scenes/parry_prefab.tscn" id="1_0euqt"]
 
-[node name="Parry" type="Node2D"]
+[node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -18,4 +18,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.105882354, 0.011764706, 0.14901961, 1)
 
-[node name="ParryPrefab" parent="." instance=ExtResource("1_0euqt")]
+[node name="Parry" parent="." instance=ExtResource("1_0euqt")]

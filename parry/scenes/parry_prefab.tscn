@@ -20,7 +20,7 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.5)
 colors = PackedColorArray(0.7294118, 0.3137255, 0.26666668, 1, 0.9372549, 0.9764706, 0.8392157, 1)
 
-[node name="ParryPrefab" type="Node2D"]
+[node name="Parry" type="Node2D"]
 script = ExtResource("1_cd4hu")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
