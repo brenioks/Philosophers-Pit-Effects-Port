@@ -71,3 +71,8 @@ rotation = 1.5707964
 scale = Vector2(1, 0.345)
 polygon = PackedVector2Array(0, 0, 128, -40, 120, 40)
 uv = PackedVector2Array(0, 0, 120, 40, 120, -48)
+
+[node name="UnfreezeTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="UnfreezeTimer" to="." method="_unfreeze_particles"]
