@@ -26,17 +26,16 @@ script = ExtResource("1_01ppk")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Background" type="ColorRect" parent="Camera2D"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+color = Color(0.105882354, 0.011764706, 0.14901961, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
