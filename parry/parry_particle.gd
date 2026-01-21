@@ -1,6 +1,7 @@
 @tool
 extends Node2D
 
+@export var spacebar_to_test: bool = false
 @export_tool_button("Do the parry") var start_parry_action = start_parry
 
 @onready var parried_sprite: AnimatedSprite2D = $ParriedSprite
@@ -15,7 +16,7 @@ func _ready() -> void:
 	flashbang.visible = false
 
 func _input(event: InputEvent) -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() or OS.is_debug_build() or not spacebar_to_test:
 		return
 	
 	if event is InputEventKey:
