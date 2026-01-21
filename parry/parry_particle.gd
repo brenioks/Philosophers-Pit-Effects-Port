@@ -16,7 +16,7 @@ func _ready() -> void:
 	flashbang.visible = false
 
 func _input(event: InputEvent) -> void:
-	if Engine.is_editor_hint() or OS.is_debug_build() or not spacebar_to_test:
+	if Engine.is_editor_hint() or not OS.is_debug_build() or not spacebar_to_test:
 		return
 	
 	if event is InputEventKey:
